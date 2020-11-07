@@ -1732,6 +1732,11 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
+agora-rtc-sdk-ng@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/agora-rtc-sdk-ng/-/agora-rtc-sdk-ng-4.1.1.tgz#b0115c1f81587e2b765a2832e38284987218954c"
+  integrity sha512-bS6IOPtmgnbJ+OLcJDXrISl0Ot/5SI2kCJ2Hra2KEktf9bq8Qx3S4OcIQoOqRZwXvD8xKqK9iBekIgP4Dy3BLw==
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/ajv-errors/download/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
