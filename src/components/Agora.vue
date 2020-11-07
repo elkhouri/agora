@@ -221,7 +221,7 @@ export default class Agora extends Vue {
           this.appId,
           this.channel,
           this.token || null,
-          this.inputUid ? this.inputUid : null
+          this.inputUid || null
         )
       ).toString();
       this.joined = true;
