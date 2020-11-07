@@ -65,7 +65,7 @@
         <label class="label">Camera</label>
         <div class="control">
           <div class="select">
-            <select v-model="cam">
+            <select v-model="camId">
               <option
                 v-for="cam in cams"
                 :key="cam.deviceId"
@@ -82,7 +82,7 @@
         <label class="label">Microphone</label>
         <div class="control">
           <div class="select">
-            <select v-model="mic">
+            <select v-model="micId">
               <option
                 v-for="mic in mics"
                 :key="mic.deviceId"
@@ -159,18 +159,14 @@ export default class Agora extends Vue {
   localVideoTrack!: ILocalVideoTrack;
   remoteUsers: RemoteUser = {};
   uid = "";
-  // appId = ''
-  // token = ''
-  // channel = ''
-  appId = "4b287228f02a4a86b1f754e6f2ac335a";
-  token =
-    "0064b287228f02a4a86b1f754e6f2ac335aIABRWNdGSwACZU7cw1P4nfi8S2EZyaeKa5UTwUiBVFk07vilK/EAAAAAEAAT20h7mrCnXwEAAQCasKdf";
-  channel = "qweqweqwe";
+  appId = "";
+  token = "";
+  channel = "";
   joined = false;
   inputUid = "";
-  cam = "";
+  camId = "";
   cams: MediaDeviceInfo[] = [];
-  mic = "";
+  micId = "";
   mics: MediaDeviceInfo[] = [];
   codec: SDK_CODEC = "h264";
   mode: SDK_MODE = "rtc";
@@ -201,8 +197,8 @@ export default class Agora extends Vue {
         this.mics.push(device);
       }
     }
-    if (this.cams.length) this.cam = this.cams[0].deviceId;
-    if (this.mics.length) this.mic = this.mics[0].deviceId;
+    if (this.cams.length) this.camId = this.cams[0].deviceId;
+    if (this.mics.length) this.micId = this.mics[0].deviceId;
   }
 
   async handleJoin() {
@@ -236,7 +232,7 @@ export default class Agora extends Vue {
 
     try {
       this.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack({
-        microphoneId: this.mic
+        microphoneId: this.micId
       });
     } catch (e) {
       console.error(e);
@@ -244,7 +240,7 @@ export default class Agora extends Vue {
 
     try {
       this.localVideoTrack = await AgoraRTC.createCameraVideoTrack({
-        cameraId: this.cam
+        cameraId: this.camId
       });
     } catch (e) {
       console.error(e);
